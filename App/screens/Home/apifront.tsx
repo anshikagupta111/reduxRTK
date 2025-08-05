@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import { useGetPokemonListQuery } from '../../redux/slices/appSlice';
+import React, { useState,useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { View,Text } from 'react-native';
 import styles from '../../Styles';
+import { fetchPokemonNames } from '../../redux/slices/appSlice';
 import { FlatList } from 'react-native';
 import { TextInput } from 'react-native';
-import SearchBar from '../../components/Searchbar';
+import SearchBar from '../../components/Searchbar'  ;
 const Apifront = () => {
-  const { data, error, isLoading } = useGetPokemonListQuery();
+  const dispatch=useDispatch()
+  const { names, error, isLoading } = useSelector((state)=>state.pokemon)
 const[searchQuery,setSearchQuery]=useState('')
+ useEffect(() => {
+    dispatch(fetchPokemonNames());
+  }, [dispatch]);
   if (isLoading) return <Text>Loading...</Text>;
   if (error) return <Text>Error!</Text>;
 
-const handleSearch=data.results.filter((item)=>
+const handleSearch=names.filter((item)=>
 item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   
   return (

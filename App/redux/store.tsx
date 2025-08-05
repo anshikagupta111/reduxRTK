@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import appSlice from './slices/appSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import pokemonReducer from './slices/appSlice'
 const store=configureStore({
     reducer:{
-        [appSlice.reducerPath]:appSlice.reducer},
-    
-    middleware:(getDefaultMiddleware)=>
-        getDefaultMiddleware().concat(appSlice.middleware)
+        pokemon:pokemonReducer
+    }    
 })
 setupListeners(store.dispatch)
 export default store
