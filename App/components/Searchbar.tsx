@@ -4,7 +4,8 @@ import styles from '../Styles';
 const SearchBar = ({ value, onChangeText }) => (
   <TextInput
     style={styles.searchQuery}
-    placeholder="Search Pokémon"
+    placeholder="Search Pokemon"
+    placeholderTextColor={'grey'}
     value={value}
     onChangeText={onChangeText}
   />

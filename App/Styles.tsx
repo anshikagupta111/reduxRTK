@@ -10,7 +10,7 @@ container:{
     flex:1
 },
 dataContainer:{
-    height:hp(30),
+    height:hp(80),
     width:wp(80),
     marginTop:hp(2),
     marginLeft:wp(10)
@@ -23,7 +23,18 @@ searchQuery:{
     height:hp(5),
     marginLeft:wp(7)
 },
-
+listItem:{
+    backgroundColor:"lightblue",
+    marginTop:3,
+ height:hp(4),
+    fontStyle:'italic',
+    fontWeight:'bold',
+    borderRadius:10,
+    marginLeft:10
+},
+itemlist:{
+   
+}
 
 })
 export default styles
