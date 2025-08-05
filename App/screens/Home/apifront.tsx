@@ -17,7 +17,7 @@ item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   return (
     <View style={styles.container}>
       <SearchBar value={searchQuery} onChangeText={setSearchQuery}/>
-      
+
     <View style={styles.dataContainer}>
       <FlatList
       data={handleSearch}
