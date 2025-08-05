@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useGetPokemonListQuery } from './appSlice';
+import { useGetPokemonListQuery } from '../../redux/slices/appSlice';
 import { View,Text } from 'react-native';
 import styles from '../../Styles';
 import { FlatList } from 'react-native';
 import { TextInput } from 'react-native';
+import SearchBar from '../../components/Searchbar';
 const Apifront = () => {
   const { data, error, isLoading } = useGetPokemonListQuery();
 const[searchQuery,setSearchQuery]=useState('')
@@ -15,18 +16,15 @@ item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   
   return (
     <View style={styles.container}>
-      <TextInput
-      style={styles.searchQuery}
-      placeholder="search"
-      value={searchQuery}
-      onChangeText={setSearchQuery}
-      />
+      <SearchBar value={searchQuery} onChangeText={setSearchQuery}/>
+      
     <View style={styles.dataContainer}>
       <FlatList
       data={handleSearch}
-      keyExtractor={(item)=>{item.name,item.height}}
-      renderItem={({item,index,height})=>(
-        <Text>{index+1}   {item.name}{item.height}</Text>
+      style={styles.itemlist}
+      keyExtractor={(item)=>(item.name)}
+      renderItem={({item,index})=>(
+        <Text style={styles.listItem}>{index+1}   {item.name}</Text>
   )}
       />
     </View>

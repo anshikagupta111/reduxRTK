@@ -3,7 +3,8 @@ import {
   responsiveHeight as hp,
   responsiveWidth as wp,
   responsiveFontSize as fp
-} from "react-native-responsive-dimensions";const styles=StyleSheet.create({
+} from "react-native-responsive-dimensions";
+const styles=StyleSheet.create({
 container:{
     backgroundColor:'white',
     flex:1
@@ -21,6 +22,8 @@ searchQuery:{
     width:wp(80),
     height:hp(5),
     marginLeft:wp(7)
-}
+},
+
+
 })
 export default styles
