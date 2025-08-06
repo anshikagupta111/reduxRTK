@@ -10,10 +10,25 @@ container:{
     flex:1
 },
 dataContainer:{
-    height:hp(80),
+    height:hp(70),
     width:wp(80),
     marginTop:hp(2),
     marginLeft:wp(10)
+},
+detailsContainer:{
+    height:hp(25),
+    width:wp(70),
+    backgroundColor:'lightblue',
+    marginTop:hp(18),
+    justifyContent:'center',
+    alignItems:'center',
+    marginLeft:wp(15),
+    borderRadius:20
+},
+writtenText:{
+    fontSize:fp(2),
+    fontWeight:'bold',
+    fontStyle:'italic'
 },
 searchQuery:{
     borderColor:'black',

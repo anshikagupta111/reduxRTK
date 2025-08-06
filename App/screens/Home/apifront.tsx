@@ -2,12 +2,14 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { View,Text } from 'react-native';
 import styles from '../../Styles';
-import { fetchPokemonNames } from '../../redux/slices/index';
+import { fetchPokemonNames } from '../../redux/index';
 import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { TextInput } from 'react-native';
 import { SearchBar } from '../../components/index';
 const Apifront = () => {
-  const dispatch=useDispatch()
+  const dispatch=useDispatch();
+  const navigation=useNavigation()
   const { names, error, isLoading } = useSelector((state)=>state.pokemon)
 const[searchQuery,setSearchQuery]=useState('')
  useEffect(() => {
@@ -17,7 +19,7 @@ const[searchQuery,setSearchQuery]=useState('')
   if (error) return <Text>Error!</Text>;
 
 const handleSearch=names.filter((item)=>
-item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+item.name.toUpperCase().includes(searchQuery.toUpperCase()))
   
   return (
     <View style={styles.container}>
@@ -29,7 +31,11 @@ item.name.toLowerCase().includes(searchQuery.toLowerCase()))
       style={styles.itemlist}
       keyExtractor={(item)=>(item.name)}
       renderItem={({item,index})=>(
-        <Text style={styles.listItem}>{index+1}   {item.name}</Text>
+      <Text
+      style={styles.listItem}
+        onPress={()=>navigation.navigate('ApiDetails',{name:item.name,index:index+1})}>
+          {index+1}  {item.name}
+        </Text>
   )}
       />
     </View>
