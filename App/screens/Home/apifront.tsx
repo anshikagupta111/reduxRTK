@@ -2,10 +2,10 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { View,Text } from 'react-native';
 import styles from '../../Styles';
-import { fetchPokemonNames } from '../../redux/slices/appSlice';
+import { fetchPokemonNames } from '../../redux/slices/index';
 import { FlatList } from 'react-native';
 import { TextInput } from 'react-native';
-import SearchBar from '../../components/Searchbar'  ;
+import { SearchBar } from '../../components/index';
 const Apifront = () => {
   const dispatch=useDispatch()
   const { names, error, isLoading } = useSelector((state)=>state.pokemon)

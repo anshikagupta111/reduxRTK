@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import Apifront from './App/screens/Home/apifront';
-import store from './App/redux/store';
+import { ApiFront } from './App/screens/index';
+import { store } from './App/redux';
 const App = () => {
   return (
     <Provider store={store}>
-      <Apifront/>
+      <ApiFront/>
     </Provider>
   );
 };

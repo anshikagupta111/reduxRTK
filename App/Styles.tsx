@@ -26,15 +26,12 @@ searchQuery:{
 listItem:{
     backgroundColor:"lightblue",
     marginTop:3,
- height:hp(4),
+    height:hp(4),
     fontStyle:'italic',
     fontWeight:'bold',
     borderRadius:10,
     marginLeft:10
 },
-itemlist:{
-   
-}
 
 })
 export default styles
